@@ -32,7 +32,7 @@ const Header = () => {
         </div>
         <Link to="/">Home</Link>
         <Link to="/compare">Compare</Link>
-        {/* <Link to="/watchlist">Watchlist</Link> */}
+        <Link to="/watchlist">Watchlist</Link>
         <Link to="/dashboard" className="dashboardbutton">
           <Button text={"Dashboard"} onClick={() => console.log("Prajwal")} />
         </Link>

@@ -66,3 +66,18 @@
 	/* border: 2px solid lime; */
 	gap: 2rem;
   }
+
+  .watchlist-icon-red{
+    color: var(--red) !important;
+  }
+  
+  .watchlist-icon{
+    color: var(--green);
+    border: 1px solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    font-size: 2rem;
+  }

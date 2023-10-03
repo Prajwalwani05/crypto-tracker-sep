@@ -1,25 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./style.css";
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
-import {motion} from "framer-motion";
+import {motion, useScroll} from "framer-motion";
 import { Link } from 'react-router-dom';
-// import StarIcon from '@mui/icons-material/Star';
+import StarIcon from '@mui/icons-material/Star';
+import StarOutlineIcon from '@mui/icons-material/Star';
+import { removeItemToWatchlist } from "../../../functions/removeItemToWatchList";
+import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
+
 const Grid = ({coin , key}) => {
-
-
+const watchlist = JSON.parse(localStorage.getItem("watchlist"));
+const [isCoinAdded, setIsCoinAdded] = useState(watchlist?.includes(coin.id));
    
   return (
     <Link to={`/coinPage/${coin.id}`}>
-    <div className='mainGrid'  >
+    <div className='mainGrid' >
         <motion.div initial={{y:1, opacity:0}} animate={{y:0 , opacity:1}} className={`${coin.price_change_percentage_24h < 0 ? "gridContainer redBox" : "gridContainer greenBox"}`}  key={key} >
         <div className='coinLogo'>
+        <div style={{display:"flex", gap:"1rem"}}>
         <img src={coin.image} style={{width:"4.5rem"}} alt='coin-logo' />
          <div className='coinName'>
           <p>{coin.symbol}-USD</p>
           <p>{coin.name}</p>
         </div>
-        {/* <div title="Wishlist" className='wishListDiv' onClick={()=>handleWishList}><StarIcon id="wishList" className='wishList'/></div> */}
+        </div>
+        <div
+              className={`watchlist-icon ${
+                coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+              }`}
+              onClick={(e) => {
+                if (isCoinAdded) {
+                  // remove coin
+
+                  removeItemToWatchlist(e, coin.id, setIsCoinAdded);
+                } else {
+                  setIsCoinAdded(true);
+                  alert("Coin added to watchList")
+                  saveItemToWatchlist(e, coin.id);
+                }
+              }}
+            >
+              {isCoinAdded ? <StarIcon style={{fontSize:"1.8rem"}} /> : <StarOutlineIcon style={{fontSize:"1.8rem"}} />}
+            </div>
         </div>
 
         {

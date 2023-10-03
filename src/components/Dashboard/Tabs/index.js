@@ -49,9 +49,9 @@ export default function TabsComponent({coins}) {
         <TabPanel sx={style2}   value="grid">
         <div className='gridFlex'>
           {
-             coins.map((coin, index )=>{
+             coins.map((coin, index)=>{
               return(
-               <Grid coin = {coin} key = {index}/>
+               <Grid coin = {coin} key = {index} delay={(index % 4) * 0.2}/>
               )
             })
           }

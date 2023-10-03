@@ -18,7 +18,7 @@ function App() {
       <Route path='/dashboard' element={<Dashboard />}/>
       <Route path='/compare' element={<Compare />}/>
       <Route path='/coinPage/:id' element={<CoinPage />}/>
-      {/* <Route path='/dashboard' element={<Watchlist />}/> */}
+      <Route path='/watchlist' element={<Watchlist />}/>
 
     </Routes>
     {/* <button onClick={toggleTheme}>"Theme Mode"</button> */}

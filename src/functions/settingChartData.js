@@ -38,8 +38,8 @@ export const settingChartData = (setChartData , prices1 , prices2) =>{
         datasets:[
           {
             data:prices1.map((price)=>price[1]),
-            borderColor:"#3a80e9",
-            backgroundColor:"rgba(58,128,233,0.1)",
+            borderColor:"#ff5400",
+            backgroundColor:"rgba(255, 84, 0,0.1)",
             pointRadius:0,
             borderWidth:2,
             fill:true,

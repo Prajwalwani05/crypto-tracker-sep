@@ -4,6 +4,7 @@ import "./style.css";
 import iphone from "../../../assets/iphone.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import {RWebShare} from 'react-web-share'
 const MainComponent = () => {
   return (
     <div className="mainComponent">
@@ -18,9 +19,20 @@ const MainComponent = () => {
           <Link to="/dashboard">
           <Button text={"Dashboard"} onClick={()=>console.log("Prajwal")} />
           </Link>
-          <Link to="/">
+          {/* <Link to="/">
           <Button text={"Share"} outline={true}  onClick={()=>console.log("Prajwal")} />
-          </Link>
+          </Link> */}
+          <RWebShare
+            data={{
+              text: "Crypto Dashboard made using React JS.",
+              url: "https://crypto-dashboard-dec.netlify.app/",
+              title: "CryptoDashboard.",
+            }}
+            onClick={() => console.log("shared successfully!")}
+          >
+            <Button text={"Share"} outline={true}  onClick={()=>console.log("Prajwal")} />
+          </RWebShare>
+
         </motion.div>
       </div>
       <div className="right">

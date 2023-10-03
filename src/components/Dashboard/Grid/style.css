@@ -12,7 +12,8 @@
 }
 .coinLogo{
     display: flex;
-    gap: 2rem;
+    padding-right:2rem;
+    justify-content: space-between;
     align-items:center;
     font-size: 1.8rem;
     text-transform: capitalize;
@@ -55,7 +56,11 @@
     color: white;
   }
 }
-
+.wishListDiv{
+  border: 2px solid red;
+  padding: 1rem;
+  border-radius: 50%;
+}
 .green{
   & p:nth-child(1){
     border: 1px solid var(--green);
@@ -200,4 +205,3 @@
       --rotate: 360deg;
     }
   }
-  
